@@ -15,7 +15,7 @@
 
         <form action="/board/list" method="get" id="searchForm">
             <div class="input-group">
-                <input type="hidden" name="page" value="-1">
+                <input type="hidden" name="page" value="1">
                 <div class="input-group-prepend">
                     <select class="custom-select" name="type">
                         <option th:selected="${pageRequestDTO.type == null}">------</option>
