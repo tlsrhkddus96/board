@@ -1,9 +1,6 @@
 package org.rhkddus.board.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +10,7 @@ import javax.persistence.Id;
 @Entity
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @ToString
 public class Movie extends BaseEntity{
