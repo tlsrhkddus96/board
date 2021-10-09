@@ -1,10 +1,12 @@
 package org.rhkddus.board.repository;
 
 import org.rhkddus.board.entity.Board;
+import org.rhkddus.board.entity.Member;
 import org.rhkddus.board.repository.search.SearchBoardRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -31,6 +33,10 @@ public interface BoardRepository extends JpaRepository<Board, Long>, SearchBoard
             " left outer join Reply r on r.board = b" +
             " where b.bno =:bno")
     Object getBoardByBno(@Param("bno") Long bno);
+
+//    @Modifying
+//    @Query("delete from Board b where b.member = :member")
+//    void deleteByMember(Member member);
 
 
 
