@@ -2,6 +2,8 @@ package org.rhkddus.board.service;
 
 import org.rhkddus.board.dto.MovieDTO;
 import org.rhkddus.board.dto.MovieImageDTO;
+import org.rhkddus.board.dto.PageRequestDTO;
+import org.rhkddus.board.dto.PageResultDTO;
 import org.rhkddus.board.entity.Movie;
 import org.rhkddus.board.entity.MovieImage;
 
@@ -13,6 +15,34 @@ import java.util.stream.Collectors;
 public interface MovieService {
 
     Long register(MovieDTO movieDTO);
+
+    //목록 처리
+    PageResultDTO<MovieDTO, Object[]> getList(PageRequestDTO requestDTO);
+
+    default  MovieDTO entitiesToDTO(Movie movie, List<MovieImage> movieImages, Double avg, Long reviewCnt){
+
+        MovieDTO movieDTO = MovieDTO.builder()
+                .movieNum(movie.getMovieNum())
+                .title(movie.getTitle())
+                .regDate(movie.getRegDate())
+                .modDate(movie.getModDate())
+                .build();
+
+        List<MovieImageDTO> movieImageDTOList = movieImages.stream().map(movieImage -> {
+
+            return MovieImageDTO.builder().imgName(movieImage.getImgName())
+                    .path(movieImage.getPath())
+                    .uuid(movieImage.getUuid())
+                    .build();
+        }).collect(Collectors.toList());
+
+        movieDTO.setImageDTOList(movieImageDTOList);
+        movieDTO.setAvg(avg);
+        movieDTO.setReviewCnt(reviewCnt.intValue());
+
+        return movieDTO;
+
+    }
 
     default Map<String, Object> dtoToEntity(MovieDTO movieDTO){
 
