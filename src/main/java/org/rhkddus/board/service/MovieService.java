@@ -16,6 +16,8 @@ public interface MovieService {
 
     Long register(MovieDTO movieDTO);
 
+    MovieDTO getMovie(Long movieNum);
+
     //목록 처리
     PageResultDTO<MovieDTO, Object[]> getList(PageRequestDTO requestDTO);
 

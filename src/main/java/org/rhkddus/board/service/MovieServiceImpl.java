@@ -15,6 +15,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -47,6 +48,26 @@ public class MovieServiceImpl implements MovieService{
 
         return movie.getMovieNum();
 
+    }
+
+    @Override
+    public MovieDTO getMovie(Long movieNum) {
+
+        List<Object[]> result = movieRepository.getMovieWithAll(movieNum);
+
+        Movie movie = (Movie) result.get(0)[0]; // Movie엔티티는 가장 앞에 존재 - 모든 Row가 동일한 값
+
+        List<MovieImage> movieImageList = new ArrayList<>(); //영화의 이미지 개수만큼 MovieImage객체 필요
+
+        result.forEach(arr -> {
+            MovieImage movieImage = (MovieImage) arr[1];
+            movieImageList.add(movieImage);
+        });
+
+        Double avg = (Double) result.get(0)[2]; // 평균 평점 - 모든 Row가 동일한 값
+        Long reviewCnt = (Long) result.get(0)[3]; // 리뷰 개수 - 모든 Row가 동일한 값
+
+        return entitiesToDTO(movie, movieImageList, avg, reviewCnt);
     }
 
     @Override
