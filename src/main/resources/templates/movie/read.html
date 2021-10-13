@@ -200,7 +200,7 @@
               console.log(review);
 
               str+= '<div class="card-body" data-reviewNum='+review.reviewNum+' data-email='+review.email+'>';
-              str+= '<h5 class="card-title">'+review.text+' <span>'+"["+ review.grade+']</span></h5>';
+              str+= '<h5 class="card-title">'+review.text+' <span>'+ review.grade+'</span></h5>';
               str+= '<h6 class="card-subtitle mb-2 text-muted">'+review.name+'</h6>';
               str+= '<p class="card-text">'+ formatTime(review.regDate)+'</p>';
               str+= '</div>';
@@ -215,13 +215,14 @@
 
         getMovieReviews();
 
-
+          //리뷰Num이 안넘어옴%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
         //리뷰 선택 & 수정
 
         var reviewNum;
 
-       $(".reviewList").on("click", ".card-body", function(){
+        $(".reviewList").on("click", ".card-body", function(){
+
 
             $(".reviewSaveBtn").hide();
             $(".removeBtn , .modifyBtn").show();
@@ -240,6 +241,53 @@
         });
 
 
+        $(".modifyBtn").on("click", function(){
+
+          var data = {reviewNum:reviewNum, movieNum:movieNum, grade:grade, text:inputText.val(), email:inputEmail.val() };
+
+          console.log(data);
+
+          $.ajax({
+            url: '/reviews/'+movieNum+"/"+reviewNum ,
+            type : "PUT",
+            data: JSON.stringify(data),
+            contentType: "application/json; charset=utf-8",
+            dataType : "text",
+            success : function(result){
+              console.log("result: " + result);
+
+              self.location.reload();
+            }
+
+          });
+
+          reviewModal.modal('hide');
+        });
+
+
+        $(".removeBtn").on("click",function(){
+
+          var data= {reviewNum:reviewNum};
+
+          console.log(data);
+
+          $.ajax({
+
+            url:'/reviews/'+movieNum+"/"+reviewNum ,
+            type:"DELETE",
+            contentType : "application/json; charset=utf-8",
+            dataType:"text",
+            success: function(result){
+
+              console.log("result: " + result);
+
+              self.location.reload();
+
+            }
+          });
+
+          reviewModal.modal('hide');
+        });
 
 
 
