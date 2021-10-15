@@ -24,7 +24,7 @@
 
     <div class="uploadResult">
       <ul>
-        <li th:each="movieImage : ${dto.imageDTOList}">
+        <li th:each="movieImage : ${dto.imageDTOList}" th:data-file="${movieImage.getThumbnailURL()}">
           <img th:if="${movieImage.path != null}" th:src="|/display?fileName=${movieImage.getThumbnailURL()}|">
         </li>
       </ul>
@@ -191,7 +191,7 @@
 
           }
 
-          $.getJSON("/reviews/"+movieNum+"/all", function(arr) {
+          $.getJSON("/reviews/"+movieNum +"/all", function(arr) {
 
             var str = "";
 
@@ -229,7 +229,10 @@
 
             var targetReview = $(this);
 
-            reviewNum = targetReview.data("reviewNum");
+
+            //data() 안에 소문자로 해야 인식됨...
+            reviewNum = targetReview.data("reviewnum");
+
             console.log("reviewNum: " + reviewNum);
             inputEmail.val(targetReview.data("email"));
             inputText.val(targetReview.find('card-title').clone().children().remove().end().text());
@@ -289,6 +292,18 @@
           reviewModal.modal('hide');
         });
 
+        //파일 이미지 클릭시 이벤트
+        $(".uploadResult li").click(function() {
+
+          var file = $(this).data('file');
+
+          console.log(file);
+
+          $('.imageModal .modal-body').html("<img style='width:100%' src='/display?fileName="+file+"&size=1' >")
+
+          $(".imageModal").modal("show");
+
+        });
 
 
 
