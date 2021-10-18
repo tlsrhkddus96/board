@@ -2,10 +2,9 @@ package org.rhkddus.board.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Builder
@@ -22,6 +21,16 @@ public class Member  extends BaseEntity{
     private String password;
 
     private String name;
+
+
+    @ElementCollection(fetch = FetchType.LAZY)
+    @Builder.Default
+    private Set<MemberRole> roleSet = new HashSet<>();
+
+    public void addMemberRole(MemberRole memberRole){
+        roleSet.add(memberRole);
+
+    }
 
 
 }
