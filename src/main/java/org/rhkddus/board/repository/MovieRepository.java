@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface MovieRepository extends JpaRepository<Movie, Long> {
+public interface MovieRepository extends JpaRepository<Movie, Long>{
 
     @Query("select m, mi, avg(coalesce(r.grade,0)), count(distinct r) from Movie m " +
             " left outer join MovieImage mi on mi.movie = m " +
