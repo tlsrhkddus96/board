@@ -18,6 +18,10 @@ public interface MovieService {
 
     MovieDTO getMovie(Long movieNum);
 
+    void removeWithReviews(Long movieNum);
+
+    void modify(MovieDTO movieDTO);
+
     //목록 처리
     PageResultDTO<MovieDTO, Object[]> getList(PageRequestDTO requestDTO);
 

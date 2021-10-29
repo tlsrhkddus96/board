@@ -84,6 +84,10 @@ public class BoardServiceImpl implements BoardService{
         board.changeTitle(boardDTO.getTitle());
         board.changeContent(boardDTO.getContent());
 
+        log.info("title"  + board.getTitle());
+        log.info("dto" + boardDTO);
+        log.info(board);
+
         repository.save(board);
 
 

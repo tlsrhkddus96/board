@@ -9,6 +9,7 @@ import org.rhkddus.board.entity.Movie;
 import org.rhkddus.board.entity.MovieImage;
 import org.rhkddus.board.repository.MovieImageRepository;
 import org.rhkddus.board.repository.MovieRepository;
+import org.rhkddus.board.repository.ReviewRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -29,6 +30,8 @@ public class MovieServiceImpl implements MovieService{
     private final MovieRepository movieRepository;
 
     private final MovieImageRepository imageRepository;
+
+    private final ReviewRepository reviewRepository;
 
     @Transactional
     @Override
@@ -68,6 +71,37 @@ public class MovieServiceImpl implements MovieService{
         Long reviewCnt = (Long) result.get(0)[3]; // 리뷰 개수 - 모든 Row가 동일한 값
 
         return entitiesToDTO(movie, movieImageList, avg, reviewCnt);
+    }
+
+
+    @Transactional
+    @Override
+    public void removeWithReviews(Long movieNum) {
+
+        reviewRepository.deleteByMovieNum(movieNum);
+
+        imageRepository.deleteByMovieNum(movieNum);
+
+        movieRepository.deleteById(movieNum);
+
+
+
+    }
+
+    @Transactional
+    @Override
+    public void modify(MovieDTO movieDTO) {
+
+        Movie movie = movieRepository.getOne(movieDTO.getMovieNum());
+
+        movie.changeTitle(movie.getTitle());
+
+        log.info("title"  + movie.getTitle());
+        log.info("dto" + movieDTO);
+        log.info(movie);
+
+        movieRepository.save(movie);
+
     }
 
     @Override
