@@ -3,6 +3,7 @@ package org.rhkddus.board.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.rhkddus.board.dto.MovieDTO;
+import org.rhkddus.board.dto.MovieImageDTO;
 import org.rhkddus.board.dto.PageRequestDTO;
 import org.rhkddus.board.dto.PageResultDTO;
 import org.rhkddus.board.entity.Movie;
@@ -92,15 +93,30 @@ public class MovieServiceImpl implements MovieService{
     @Override
     public void modify(MovieDTO movieDTO) {
 
-        Movie movie = movieRepository.getOne(movieDTO.getMovieNum());
+//        Movie movie = movieRepository.getOne(movieDTO.getMovieNum());
+//
+//
+//        movie.changeTitle(movieDTO.getTitle());
+//
+//
+//
+//        log.info("title"  + movieDTO.getTitle());
+//        log.info("dto" + movieDTO);
+//        log.info(movie);
+//
+//        movieRepository.save(movie);
 
-        movie.changeTitle(movie.getTitle());
-
-        log.info("title"  + movie.getTitle());
-        log.info("dto" + movieDTO);
-        log.info(movie);
+        Map<String, Object> entityMap = dtoToEntity(movieDTO);
+        Movie movie = (Movie) entityMap.get("movie");
+        List<MovieImage> movieImageList = (List<MovieImage>) entityMap.get("imgList");
 
         movieRepository.save(movie);
+
+        movieImageList.forEach(movieImage -> {
+
+            imageRepository.save(movieImage);
+
+        });
 
     }
 

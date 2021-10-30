@@ -26,4 +26,6 @@ public class Movie extends BaseEntity{
         this.title = title;
     }
 
+
+
 }

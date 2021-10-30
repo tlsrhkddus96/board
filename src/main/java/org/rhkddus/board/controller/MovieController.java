@@ -61,6 +61,36 @@ public class MovieController {
 
     }
 
+    @PostMapping("/remove")
+    public String remove(long movieNum, RedirectAttributes redirectAttributes){
+
+        log.info("movieNum : " + movieNum);
+
+        movieService.removeWithReviews(movieNum);
+
+        redirectAttributes.addFlashAttribute("msg", movieNum);
+
+        return "redirect:/movie/list";
+
+    }
+
+    @PostMapping("/modify")
+    public String modify(MovieDTO dto,
+                         @ModelAttribute("requestDTO") PageRequestDTO requestDTO, RedirectAttributes redirectAttributes){
+
+        log.info("Post Modify");
+        log.info("dto : " + dto);
+
+        movieService.modify(dto);
+
+        redirectAttributes.addAttribute("page", requestDTO.getPage());
+
+        redirectAttributes.addAttribute("movieNum",dto.getMovieNum());
+
+        return "redirect:/movie/read";
+
+    }
+
 
 
 }
