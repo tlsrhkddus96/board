@@ -35,7 +35,7 @@ public interface BoardRepository extends JpaRepository<Board, Long>, SearchBoard
     Object getBoardByBno(@Param("bno") Long bno);
 
 //    @Modifying
-//    @Query("delete from Board b where b.member = :member")
+//    @Query("delete from Board b where b.member =:member")
 //    void deleteByMember(Member member);
 
 

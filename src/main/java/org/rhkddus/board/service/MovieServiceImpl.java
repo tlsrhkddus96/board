@@ -93,30 +93,15 @@ public class MovieServiceImpl implements MovieService{
     @Override
     public void modify(MovieDTO movieDTO) {
 
-//        Movie movie = movieRepository.getOne(movieDTO.getMovieNum());
-//
-//
-//        movie.changeTitle(movieDTO.getTitle());
-//
-//
-//
-//        log.info("title"  + movieDTO.getTitle());
-//        log.info("dto" + movieDTO);
-//        log.info(movie);
-//
-//        movieRepository.save(movie);
+        Movie movie = movieRepository.getOne(movieDTO.getMovieNum());
 
-        Map<String, Object> entityMap = dtoToEntity(movieDTO);
-        Movie movie = (Movie) entityMap.get("movie");
-        List<MovieImage> movieImageList = (List<MovieImage>) entityMap.get("imgList");
+        movie.changeTitle(movieDTO.getTitle());
+
+        log.info("title"  + movieDTO.getTitle());
+        log.info("dto" + movieDTO);
 
         movieRepository.save(movie);
 
-        movieImageList.forEach(movieImage -> {
-
-            imageRepository.save(movieImage);
-
-        });
 
     }
 
