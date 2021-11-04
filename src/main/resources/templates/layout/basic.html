@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.springframework.org/schema/security">
 
 <th:block th:fragment="setContent(content)">
 
@@ -32,7 +32,7 @@
   <div class="bg-light border-right" id="sidebar-wrapper">
     <div class="sidebar-heading">Board </div>
     <div class="list-group list-group-flush">
-      <a href="/board/list" class="list-group-item list-group-item-action bg-light">Board List</a>
+      <a href="/board/list"  class="list-group-item list-group-item-action bg-light">Board List</a>
       <a href="/movie/list" class="list-group-item list-group-item-action bg-light">Movie List</a>
 
     </div>
@@ -52,12 +52,15 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
 
+
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Dropdown
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="/member/form">Sign Up</a>
+              <a class="dropdown-item" sec:authorize="isAnonymous()" href="/login">Login</a>
+              <a class="dropdown-item" sec:authorize="isAuthenticated()" href="/logout">Logout</a>
               <a class="dropdown-item" href="#">Another action</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Something else here</a>

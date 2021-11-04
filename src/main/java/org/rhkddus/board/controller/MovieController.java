@@ -5,6 +5,7 @@ import lombok.extern.log4j.Log4j2;
 import org.rhkddus.board.dto.MovieDTO;
 import org.rhkddus.board.dto.PageRequestDTO;
 import org.rhkddus.board.service.MovieService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +22,7 @@ public class MovieController {
 
     private final MovieService movieService;
 
+    @PreAuthorize("isAuthenticated()")
     @GetMapping("/register")
     public void register(){
 

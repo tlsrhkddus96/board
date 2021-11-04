@@ -63,7 +63,7 @@ public class MemberRepositoryTests {
 
 
         reviewRepository.deleteByMember(member);
-        boardRepository.deleteByMember(member);
+       // boardRepository.deleteByMember(member);
         memberRepository.deleteById(email);
 
     }

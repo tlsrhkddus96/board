@@ -46,6 +46,8 @@ public class UserDetailService implements UserDetailsService {
                         role -> new SimpleGrantedAuthority("ROLE_"+ role.name())).collect(Collectors.toSet())
         );
 
+        log.info(authMember);
+
         authMember.setName(member.getName());
 
         return authMember;

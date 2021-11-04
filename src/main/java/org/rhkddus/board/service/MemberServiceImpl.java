@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.rhkddus.board.dto.MemberDTO;
 import org.rhkddus.board.entity.Member;
+import org.rhkddus.board.entity.MemberRole;
 import org.rhkddus.board.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -31,6 +32,8 @@ public class MemberServiceImpl implements MemberService{
         String password = member.getPassword();
 
         member.setPassword(passwordEncoder.encode(password));
+
+        member.addMemberRole(MemberRole.USER);
 
         memberRepository.save(member);
 
