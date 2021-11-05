@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.springframework.org/schema/security">
 
 <th:block th:replace="~{/layout/basic :: setContent(~{this::content} )}">
 
@@ -21,7 +21,7 @@
 
        <div class="form-group">
         <label>작성자 이메일</label>
-        <input type="email" class="form-control" name="writerEmail"  placeholder="이메일을 입력하세요.">
+        <input type="email" class="form-control" name="writerEmail" sec:authentication="name">
       </div>
 
       <button type="submit" class="btn btn-primary">Submit</button>

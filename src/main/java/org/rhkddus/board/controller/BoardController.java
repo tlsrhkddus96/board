@@ -5,7 +5,9 @@ import lombok.extern.log4j.Log4j2;
 import org.rhkddus.board.dto.BoardDTO;
 import org.rhkddus.board.dto.PageRequestDTO;
 import org.rhkddus.board.service.BoardService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,6 +38,8 @@ public class BoardController {
     @GetMapping("/register")
     public void register(){
         log.info("register");
+
+
     }
 
     @PostMapping("/register")
