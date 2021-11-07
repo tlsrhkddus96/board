@@ -40,6 +40,7 @@ public class BoardController {
         log.info("register");
 
 
+
     }
 
     @PostMapping("/register")
