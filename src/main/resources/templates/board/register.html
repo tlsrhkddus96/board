@@ -21,8 +21,9 @@
 
        <div class="form-group">
         <label>작성자 이메일</label>
-        <input type="email" class="form-control" name="writerEmail" sec:authentication="name">
+        <input type="email" class="form-control" name="writerEmail" th:value="${email}" readonly>
       </div>
+
 
       <button type="submit" class="btn btn-primary">Submit</button>
 
