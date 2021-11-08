@@ -77,7 +77,7 @@
               <input class="form-control" type="text" name="replyText" placeholder="Reply Text...">
             </div>
             <div class="form-group">
-              <input class="form-control" type="text" name="replyer" placeholder="Replyer">
+              <input class="form-control" type="text" name="replyer"  th:value="${email}" readonly>
               <input type="hidden" name="rno">
             </div>
           </div>
@@ -101,6 +101,10 @@
 
         var bno = [[${dto.bno}]];
         var listGroup = $(".replyList");
+
+        //댓글 나타내기
+        loadJSONData();
+
 
         //날짜 처리 함수
         function formatTime(str){
@@ -136,24 +140,23 @@
             });
         }
 
-        //ReplyCount 버튼 클릭
-        $(".replyCount").click(function(){
-
-            loadJSONData();
-        });
 
 
         var modal = $('.modal');
+        var email = [[${email}]];
 
         //addReply 클릭시
         $(".addReply").click(function() {
             modal.modal('show');
 
             $('.input[name="replyText"]').val('');
-            $('.input[name="replyer"]').val('');
+<!--            $('.input[name="replyer"]').val(email).readonly();-->
 
             $(".modal-footer .btn").hide();
             $(".replySave, .replyClose").show();
+
+            console.log(email);
+
 
         });
 

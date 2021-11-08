@@ -66,8 +66,10 @@ public class BoardController {
 
     }
 
+    @PreAuthorize("isAuthenticated()")
     @GetMapping({"/read","/modify"})
-    public void read(@ModelAttribute("requestDTO") PageRequestDTO pageRequestDTO, Long bno, Model model){
+    public void read(@ModelAttribute("requestDTO") PageRequestDTO pageRequestDTO,
+                     @AuthenticationPrincipal AuthMemberDTO authMemberDTO, Long bno, Model model){
 
         log.info("bno:" + bno);
 
@@ -75,6 +77,7 @@ public class BoardController {
 
         log.info(boardDTO);
 
+        model.addAttribute("email",authMemberDTO.getEmail());
         model.addAttribute("dto", boardDTO);
 
     }
