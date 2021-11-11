@@ -24,7 +24,7 @@ public class MovieController {
 
     private final MovieService movieService;
 
-    @PreAuthorize("isAuthenticated()")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/register")
     public void register(){
 
@@ -54,6 +54,7 @@ public class MovieController {
     }
 
 
+    @PreAuthorize("isAuthenticated()")
     @GetMapping({"/read", "/modify"})
     public void read(@AuthenticationPrincipal AuthMemberDTO authMemberDTO,
                      long movieNum, @ModelAttribute("requestDTO")PageRequestDTO requestDTO, Model model){
