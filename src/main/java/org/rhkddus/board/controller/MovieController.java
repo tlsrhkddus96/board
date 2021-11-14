@@ -66,6 +66,7 @@ public class MovieController {
         model.addAttribute("dto", movieDTO);
         model.addAttribute("email", authMemberDTO.getEmail());
 
+
     }
 
     @PostMapping("/remove")
