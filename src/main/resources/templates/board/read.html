@@ -166,11 +166,19 @@
         //Save버튼 클릭시
         $(".replySave").click(function() {
 
+
+
             var reply = {
                 bno : bno,
                 text : $('input[name="replyText"]').val(),
                 replyer : $('input[name="replyer"]').val()
             }
+
+<!--&lt;!&ndash;                        if(text ==null &&""){&ndash;&gt;            ????????????????????-->
+
+<!--              alert("댓글을 ");-->
+<!--              return;-->
+<!--              };-->
 
             console.log(reply);
 
