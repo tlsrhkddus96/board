@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.springframework.org/schema/security">
 
 <th:block th:replace="~{/layout/basic :: setContent(~{this::content} )}">
 
@@ -39,11 +39,26 @@
              th:value="${#temporals.format(dto.modDate, 'yyyy/MM/dd HH:mm')}" readonly>
     </div>
 
+    <div sec:authentication="name">
+    </div>
+
+
+      <input type="text" class="gd" th:value="${email}">
+
+
+
+
+    <div th:value="${dto.writerEmail}" th:name="${dto.writerName}">[[${dto.writerEmail}]]</div>
+
+    <button type="button" th:if="${email} == ${dto.writerEmail}">ㅎㅇㅎㅇ</button>
+
+
+
     <a th:href="@{/board/modify(bno= ${dto.bno},
                 page=${requestDTO.page},
                 type=${requestDTO.type},
                 keyword=${requestDTO.keyword})}">
-      <button type="button" class="btn btn-primary">Modify</button>
+      <button type="button" class="btn btn-primary" th:if="${email} == ${dto.writerEmail}" >Modify</button>
     </a>
 
 
@@ -53,6 +68,8 @@
       <button type="button" class="btn btn-info">List</button>
 
     </a>
+
+
 
     <div>
       <div class="mt-4">
@@ -85,8 +102,8 @@
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-danger replyRemove">Remove</button>
-            <button type="button" class="btn btn-warning replyModify">Modify</button>
+            <button type="button" class="btn btn-danger replyRemove" th:if="${email} == ${dto.writerEmail}">Remove</button>
+            <button type="button" class="btn btn-warning replyModify" th:if="${email} == ${dto.writerEmail}">Modify</button>
             <button type="button" class="btn btn-primary replySave">Save</button>
             <button type="button" class="btn btn-outline-secondary replyClose">Close</button>
           </div>
@@ -98,15 +115,27 @@
 
 
 
-    <script th:inline="javascript">
+
+    <script th:inline="javascript" xmlns:sec="http://www.springframework.org/schema/security">
 
     $(document).ready(function() {
 
         var bno = [[${dto.bno}]];
         var listGroup = $(".replyList");
 
+        var email = [[${email}]];
+
+        console.log(bno);
+
+        console.log(email);
+
+
+
+
         //댓글 나타내기
         loadJSONData();
+
+
 
 
         //날짜 처리 함수
@@ -146,7 +175,6 @@
 
 
         var modal = $('.modal');
-        var email = [[${email}]];
 
         //addReply 클릭시
         $(".addReply").click(function() {
@@ -163,6 +191,8 @@
 
         });
 
+
+
         //Save버튼 클릭시
         $(".replySave").click(function() {
 
@@ -173,12 +203,6 @@
                 text : $('input[name="replyText"]').val(),
                 replyer : $('input[name="replyer"]').val()
             }
-
-<!--&lt;!&ndash;                        if(text ==null &&""){&ndash;&gt;            ????????????????????-->
-
-<!--              alert("댓글을 ");-->
-<!--              return;-->
-<!--              };-->
 
             console.log(reply);
 
@@ -206,12 +230,24 @@
 
             var rno = $(this).data("rno");
 
+
+
             $("input[name='replyText']").val( $(this).find('.card-title').html());
             $("input[name='replyer']").val( $(this).find('.card-subtitle').html());
             $("input[name='rno']").val(rno);
 
             $(".modal-footer .btn").hide();
             $(".replyRemove, .replyModify, .replyClose").show();
+
+            var dsa = $("input[name='replyer']").val();
+
+            console.log("개시발"+dsa);        // 이제 if로 아래꺼 비교하면댐 ㅎㅎ 모디파이 안나오게 리무브도
+
+
+              if(email === $("input[name='replyer']")){
+              console.log(email);
+              $(".replyRemove").hide();
+              };
 
             modal.modal('show');
 
