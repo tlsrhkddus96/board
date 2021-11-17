@@ -39,18 +39,8 @@
              th:value="${#temporals.format(dto.modDate, 'yyyy/MM/dd HH:mm')}" readonly>
     </div>
 
-    <div sec:authentication="name">
-    </div>
 
 
-      <input type="text" class="gd" th:value="${email}">
-
-
-
-
-    <div th:value="${dto.writerEmail}" th:name="${dto.writerName}">[[${dto.writerEmail}]]</div>
-
-    <button type="button" th:if="${email} == ${dto.writerEmail}">ㅎㅇㅎㅇ</button>
 
 
 
@@ -102,8 +92,8 @@
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-danger replyRemove" th:if="${email} == ${dto.writerEmail}">Remove</button>
-            <button type="button" class="btn btn-warning replyModify" th:if="${email} == ${dto.writerEmail}">Modify</button>
+            <button type="button" class="btn btn-danger replyRemove">Remove</button>
+            <button type="button" class="btn btn-warning replyModify">Modify</button>
             <button type="button" class="btn btn-primary replySave">Save</button>
             <button type="button" class="btn btn-outline-secondary replyClose">Close</button>
           </div>
@@ -116,7 +106,7 @@
 
 
 
-    <script th:inline="javascript" xmlns:sec="http://www.springframework.org/schema/security">
+    <script th:inline="javascript">
 
     $(document).ready(function() {
 
@@ -181,7 +171,6 @@
             modal.modal('show');
 
             $('.input[name="replyText"]').val('');
-<!--            $('.input[name="replyer"]').val(email).readonly();-->
 
             $(".modal-footer .btn").hide();
             $(".replySave, .replyClose").show();
@@ -229,6 +218,7 @@
         $('.replyList').on("click", ".card-body", function(){
 
             var rno = $(this).data("rno");
+            var replyer = $("input[name='replyer']").val();
 
 
 
@@ -239,15 +229,14 @@
             $(".modal-footer .btn").hide();
             $(".replyRemove, .replyModify, .replyClose").show();
 
-            var dsa = $("input[name='replyer']").val();
 
-            console.log("개시발"+dsa);        // 이제 if로 아래꺼 비교하면댐 ㅎㅎ 모디파이 안나오게 리무브도
-
-
-              if(email === $("input[name='replyer']")){
-              console.log(email);
+            //접속중인 id와 댓글id가 다르면 Modify, Remove 비활성화
+            if(email !== replyer){
+              console.log("접속중 id" + email);
+              console.log("replyer id " + replyer);
               $(".replyRemove").hide();
-              };
+              $(".replyModify").hide();
+            };
 
             modal.modal('show');
 

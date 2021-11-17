@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.springframework.org/schema/security">
 
 <th:block th:replace="~{/layout/basic :: setContent(~{this::content} )}">
 
@@ -37,7 +37,7 @@
 
     <a th:href="@{/movie/modify(movieNum= ${dto.movieNum},
                 page=${requestDTO.page})}">
-      <button type="button" class="btn btn-primary">Modify</button>
+      <button type="button" sec:authorize="hasRole('ADMIN')" class="btn btn-primary">Modify</button>
     </a>
 
     <a th:href="@{/movie/list(page=${requestDTO.page})}">
@@ -134,13 +134,14 @@
 
 
 
-    <script>
+    <script th:inline="javascript">
 
       $(document).ready(function(e) {
 
         var grade = 0;
 
         var movieNum = [[${dto.movieNum}]];
+        var email = [[${email}]];
 
         $('.starrr').starrr({
 
@@ -161,8 +162,9 @@
         var inputText = $('input[name="text"]');
 
 
+        //add리뷰 버튼 클릭시
         $(".addReviewBtn").click(function () {
-<!--          inputEmail.val("");-->
+
           inputText.val("");
 
           $(".removeBtn , .modifyBtn").hide();
@@ -173,6 +175,7 @@
         });
 
 
+        //리뷰Modal Save버튼 클릭
         $(".reviewSaveBtn").click(function() {
 
           var data = {movieNum:movieNum , grade:grade, text:inputText.val(), email:inputEmail.val() };
@@ -236,7 +239,8 @@
 
         getMovieReviews();
 
-          //리뷰Num이 안넘어옴%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
         //리뷰 선택 & 수정
 
@@ -244,19 +248,26 @@
 
         $(".reviewList").on("click", ".card-body", function(){
 
+            console.log("접속중 email : " + email);
 
             $(".reviewSaveBtn").hide();
             $(".removeBtn , .modifyBtn").show();
 
             var targetReview = $(this);
+            var reviewer = targetReview.data("email");
 
 
             //data() 안에 소문자로 해야 인식됨...
             reviewNum = targetReview.data("reviewnum");
-
             console.log("reviewNum: " + reviewNum);
-            inputEmail.val(targetReview.data("email"));
+
+            inputEmail.val(reviewer);
             inputText.val(targetReview.find('card-title').clone().children().remove().end().text());
+
+            if(email !== reviewer ) {
+              $(".removeBtn , .modifyBtn").hide();
+            };
+
 
             var grade = targetReview.find('.card-title span').html();
             $(".starrr a:nth-child("+grade+")").trigger('click');
@@ -287,6 +298,7 @@
 
           reviewModal.modal('hide');
         });
+
 
 
         $(".removeBtn").on("click",function(){
