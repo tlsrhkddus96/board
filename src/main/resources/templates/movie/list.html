@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.springframework.org/schema/security">
 
 <th:block th:replace="~{/layout/basic :: setContent(~{this::content} )}">
 
@@ -8,27 +8,11 @@
     <h1 class="mt-4">Movie List Page
       <span>
         <a th:href="@{/movie/register}">
-          <button type="button" class="btn btn-outline-primary">Register</button>
+          <button type="button" class="btn btn-outline-primary" sec:authorize="hasRole('ADMIN')">Register</button>
         </a>
       </span>
     </h1>
 
- <!--   <form action="/movie/list" method="get" id="searchForm">
-      <div class="input-group">
-        <input type="hidden" name="page" value="1">
-        <div class="input-group-prepend">
-          <select class="custom-select" name="type">
-            <option th:selected="${pageRequestDTO.type == null}">------</option>
-            <option value="t" th:selected="${pageRequestDTO.type == 't'}">제목</option>
-          </select>
-        </div>
-        <input class="form-control" name="keyword" th:value="${pageRequestDTO.keyword}">
-        <div class="input-group-append" id="button-addon4">
-          <button class="btn btn-outline-secondary btn-search" type="button">Search</button>
-          <button class="btn btn-outline-secondary btn-clear" type="button">Clear</button>
-        </div>
-      </div>
-    </form> -->
 
     <table class="table table-striped">
 
