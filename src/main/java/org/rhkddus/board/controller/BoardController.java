@@ -65,6 +65,7 @@ public class BoardController {
         return "redirect:/board/list";
 
 
+
     }
 
     @PreAuthorize("isAuthenticated()")
