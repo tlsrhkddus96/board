@@ -25,10 +25,5 @@ public class MovieImage {
     @ManyToOne(fetch = FetchType.LAZY)
     private Movie movie;
 
-    public void changeImage(String uuid, String imgName, String path){
-        this.uuid = uuid;
-        this.imgName = imgName;
-        this.path = path;
-    }
 
 }
