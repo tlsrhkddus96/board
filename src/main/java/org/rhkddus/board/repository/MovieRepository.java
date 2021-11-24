@@ -22,4 +22,5 @@ public interface MovieRepository extends JpaRepository<Movie, Long>{
     List<Object[]> getMovieWithAll(Long movieNum);
 
 
+
 }
