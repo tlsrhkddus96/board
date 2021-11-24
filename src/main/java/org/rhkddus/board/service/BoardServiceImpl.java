@@ -36,6 +36,7 @@ public class BoardServiceImpl implements BoardService{
         repository.save(board);
 
         return board.getBno();
+
     }
 
     @Override

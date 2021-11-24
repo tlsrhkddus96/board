@@ -66,6 +66,7 @@ public class UploadController {
                 //원본 파일 저장
                 uploadFile.transferTo(savePath);
 
+
                 //섬네일 생성 ( 이름 중간에 s_ 들어가도록 )
                 String thumbnailSaveName = uploadPath + File.separator + folderPath + File.separator
                         + "s_" + uuid + "_" + fileName;

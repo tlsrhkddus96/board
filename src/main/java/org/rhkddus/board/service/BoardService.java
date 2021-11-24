@@ -32,6 +32,7 @@ public interface BoardService {
                 .writer(member)
                 .build();
 
+
         return board;
 
     }
