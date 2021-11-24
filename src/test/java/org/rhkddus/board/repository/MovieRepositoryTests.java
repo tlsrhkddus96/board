@@ -3,6 +3,8 @@ package org.rhkddus.board.repository;
 import org.junit.jupiter.api.Test;
 import org.rhkddus.board.entity.Movie;
 import org.rhkddus.board.entity.MovieImage;
+import org.rhkddus.board.repository.movie.MovieImageRepository;
+import org.rhkddus.board.repository.movie.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;

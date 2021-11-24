@@ -1,4 +1,4 @@
-package org.rhkddus.board.service;
+package org.rhkddus.board.service.movie;
 
 import org.rhkddus.board.dto.ReviewDTO;
 import org.rhkddus.board.entity.Member;

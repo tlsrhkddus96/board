@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.rhkddus.board.dto.BoardDTO;
 import org.rhkddus.board.dto.PageRequestDTO;
 import org.rhkddus.board.dto.PageResultDTO;
+import org.rhkddus.board.service.board.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 

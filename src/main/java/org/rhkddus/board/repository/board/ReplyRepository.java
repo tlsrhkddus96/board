@@ -1,4 +1,4 @@
-package org.rhkddus.board.repository;
+package org.rhkddus.board.repository.board;
 
 import org.rhkddus.board.entity.Board;
 import org.rhkddus.board.entity.Reply;

@@ -1,4 +1,4 @@
-package org.rhkddus.board.controller;
+package org.rhkddus.board.controller.movie;
 
 import lombok.extern.log4j.Log4j2;
 import net.coobird.thumbnailator.Thumbnailator;

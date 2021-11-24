@@ -1,10 +1,10 @@
-package org.rhkddus.board.service;
+package org.rhkddus.board.service.board;
 
 import lombok.RequiredArgsConstructor;
 import org.rhkddus.board.dto.ReplyDTO;
 import org.rhkddus.board.entity.Board;
 import org.rhkddus.board.entity.Reply;
-import org.rhkddus.board.repository.ReplyRepository;
+import org.rhkddus.board.repository.board.ReplyRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

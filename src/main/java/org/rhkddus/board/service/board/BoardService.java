@@ -1,4 +1,4 @@
-package org.rhkddus.board.service;
+package org.rhkddus.board.service.board;
 
 import org.rhkddus.board.dto.BoardDTO;
 import org.rhkddus.board.dto.PageRequestDTO;

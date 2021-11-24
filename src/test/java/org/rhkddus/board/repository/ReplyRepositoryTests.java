@@ -3,6 +3,7 @@ package org.rhkddus.board.repository;
 import org.junit.jupiter.api.Test;
 import org.rhkddus.board.entity.Board;
 import org.rhkddus.board.entity.Reply;
+import org.rhkddus.board.repository.board.ReplyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 

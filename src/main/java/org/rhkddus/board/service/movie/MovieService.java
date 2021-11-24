@@ -1,4 +1,4 @@
-package org.rhkddus.board.service;
+package org.rhkddus.board.service.movie;
 
 import org.rhkddus.board.dto.MovieDTO;
 import org.rhkddus.board.dto.MovieImageDTO;

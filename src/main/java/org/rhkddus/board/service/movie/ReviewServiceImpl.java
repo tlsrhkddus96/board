@@ -1,11 +1,11 @@
-package org.rhkddus.board.service;
+package org.rhkddus.board.service.movie;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.rhkddus.board.dto.ReviewDTO;
 import org.rhkddus.board.entity.Movie;
 import org.rhkddus.board.entity.Review;
-import org.rhkddus.board.repository.ReviewRepository;
+import org.rhkddus.board.repository.movie.ReviewRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package org.rhkddus.board.repository;
+package org.rhkddus.board.repository.movie;
 
 import org.rhkddus.board.entity.MovieImage;
 import org.springframework.data.jpa.repository.JpaRepository;

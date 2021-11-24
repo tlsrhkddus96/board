@@ -1,4 +1,4 @@
-package org.rhkddus.board.repository;
+package org.rhkddus.board.repository.movie;
 
 import org.rhkddus.board.entity.Member;
 import org.rhkddus.board.entity.Movie;

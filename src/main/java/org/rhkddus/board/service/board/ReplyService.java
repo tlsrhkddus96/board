@@ -1,4 +1,4 @@
-package org.rhkddus.board.service;
+package org.rhkddus.board.service.board;
 
 import org.rhkddus.board.dto.ReplyDTO;
 import org.rhkddus.board.entity.Board;

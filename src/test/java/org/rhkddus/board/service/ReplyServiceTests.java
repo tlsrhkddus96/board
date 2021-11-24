@@ -2,6 +2,7 @@ package org.rhkddus.board.service;
 
 import org.junit.jupiter.api.Test;
 import org.rhkddus.board.dto.ReplyDTO;
+import org.rhkddus.board.service.board.ReplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 

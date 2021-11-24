@@ -1,11 +1,11 @@
-package org.rhkddus.board.controller;
+package org.rhkddus.board.controller.movie;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.rhkddus.board.dto.MovieDTO;
 import org.rhkddus.board.dto.PageRequestDTO;
 import org.rhkddus.board.security.dto.AuthMemberDTO;
-import org.rhkddus.board.service.MovieService;
+import org.rhkddus.board.service.movie.MovieService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;

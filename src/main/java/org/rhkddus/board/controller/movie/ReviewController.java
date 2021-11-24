@@ -1,9 +1,9 @@
-package org.rhkddus.board.controller;
+package org.rhkddus.board.controller.movie;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.rhkddus.board.dto.ReviewDTO;
-import org.rhkddus.board.service.ReviewService;
+import org.rhkddus.board.service.movie.ReviewService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

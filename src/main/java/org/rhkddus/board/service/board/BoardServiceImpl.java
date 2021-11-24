@@ -1,4 +1,4 @@
-package org.rhkddus.board.service;
+package org.rhkddus.board.service.board;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -7,8 +7,8 @@ import org.rhkddus.board.dto.PageRequestDTO;
 import org.rhkddus.board.dto.PageResultDTO;
 import org.rhkddus.board.entity.Board;
 import org.rhkddus.board.entity.Member;
-import org.rhkddus.board.repository.BoardRepository;
-import org.rhkddus.board.repository.ReplyRepository;
+import org.rhkddus.board.repository.board.BoardRepository;
+import org.rhkddus.board.repository.board.ReplyRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;

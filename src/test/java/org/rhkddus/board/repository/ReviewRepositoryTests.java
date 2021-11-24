@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.rhkddus.board.entity.Member;
 import org.rhkddus.board.entity.Movie;
 import org.rhkddus.board.entity.Review;
+import org.rhkddus.board.repository.movie.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 

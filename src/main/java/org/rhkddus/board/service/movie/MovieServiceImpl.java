@@ -1,16 +1,15 @@
-package org.rhkddus.board.service;
+package org.rhkddus.board.service.movie;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.rhkddus.board.dto.MovieDTO;
-import org.rhkddus.board.dto.MovieImageDTO;
 import org.rhkddus.board.dto.PageRequestDTO;
 import org.rhkddus.board.dto.PageResultDTO;
 import org.rhkddus.board.entity.Movie;
 import org.rhkddus.board.entity.MovieImage;
-import org.rhkddus.board.repository.MovieImageRepository;
-import org.rhkddus.board.repository.MovieRepository;
-import org.rhkddus.board.repository.ReviewRepository;
+import org.rhkddus.board.repository.movie.MovieImageRepository;
+import org.rhkddus.board.repository.movie.MovieRepository;
+import org.rhkddus.board.repository.movie.ReviewRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
