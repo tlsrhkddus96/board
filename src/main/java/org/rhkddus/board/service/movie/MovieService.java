@@ -1,7 +1,7 @@
 package org.rhkddus.board.service.movie;
 
-import org.rhkddus.board.dto.MovieDTO;
-import org.rhkddus.board.dto.MovieImageDTO;
+import org.rhkddus.board.dto.movie.MovieDTO;
+import org.rhkddus.board.dto.movie.MovieImageDTO;
 import org.rhkddus.board.dto.PageRequestDTO;
 import org.rhkddus.board.dto.PageResultDTO;
 import org.rhkddus.board.entity.Movie;

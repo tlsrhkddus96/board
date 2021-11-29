@@ -2,7 +2,7 @@ package org.rhkddus.board.controller.board;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.rhkddus.board.dto.BoardDTO;
+import org.rhkddus.board.dto.board.BoardDTO;
 import org.rhkddus.board.dto.PageRequestDTO;
 import org.rhkddus.board.security.dto.AuthMemberDTO;
 import org.rhkddus.board.service.board.BoardService;

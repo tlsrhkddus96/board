@@ -1,4 +1,4 @@
-package org.rhkddus.board.dto;
+package org.rhkddus.board.dto.movie;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

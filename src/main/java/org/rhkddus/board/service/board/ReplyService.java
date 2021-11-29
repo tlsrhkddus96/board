@@ -1,6 +1,6 @@
 package org.rhkddus.board.service.board;
 
-import org.rhkddus.board.dto.ReplyDTO;
+import org.rhkddus.board.dto.board.ReplyDTO;
 import org.rhkddus.board.entity.Board;
 import org.rhkddus.board.entity.Reply;
 

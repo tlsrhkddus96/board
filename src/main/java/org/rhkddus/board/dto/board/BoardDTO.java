@@ -1,4 +1,4 @@
-package org.rhkddus.board.dto;
+package org.rhkddus.board.dto.board;
 
 import lombok.*;
 

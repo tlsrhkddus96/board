@@ -2,7 +2,7 @@ package org.rhkddus.board.service.movie;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.rhkddus.board.dto.ReviewDTO;
+import org.rhkddus.board.dto.movie.ReviewDTO;
 import org.rhkddus.board.entity.Movie;
 import org.rhkddus.board.entity.Review;
 import org.rhkddus.board.repository.movie.ReviewRepository;

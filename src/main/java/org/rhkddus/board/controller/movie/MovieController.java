@@ -2,7 +2,7 @@ package org.rhkddus.board.controller.movie;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.rhkddus.board.dto.MovieDTO;
+import org.rhkddus.board.dto.movie.MovieDTO;
 import org.rhkddus.board.dto.PageRequestDTO;
 import org.rhkddus.board.security.dto.AuthMemberDTO;
 import org.rhkddus.board.service.movie.MovieService;

@@ -2,7 +2,7 @@ package org.rhkddus.board.controller.movie;
 
 import lombok.extern.log4j.Log4j2;
 import net.coobird.thumbnailator.Thumbnailator;
-import org.rhkddus.board.dto.UploadResultDTO;
+import org.rhkddus.board.dto.movie.UploadResultDTO;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

@@ -1,6 +1,6 @@
 package org.rhkddus.board.service.movie;
 
-import org.rhkddus.board.dto.ReviewDTO;
+import org.rhkddus.board.dto.movie.ReviewDTO;
 import org.rhkddus.board.entity.Member;
 import org.rhkddus.board.entity.Movie;
 import org.rhkddus.board.entity.Review;

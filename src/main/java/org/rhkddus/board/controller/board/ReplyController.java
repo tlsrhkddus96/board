@@ -2,7 +2,7 @@ package org.rhkddus.board.controller.board;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.rhkddus.board.dto.ReplyDTO;
+import org.rhkddus.board.dto.board.ReplyDTO;
 import org.rhkddus.board.service.board.ReplyService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

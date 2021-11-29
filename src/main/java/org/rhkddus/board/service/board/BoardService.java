@@ -1,6 +1,6 @@
 package org.rhkddus.board.service.board;
 
-import org.rhkddus.board.dto.BoardDTO;
+import org.rhkddus.board.dto.board.BoardDTO;
 import org.rhkddus.board.dto.PageRequestDTO;
 import org.rhkddus.board.dto.PageResultDTO;
 import org.rhkddus.board.entity.Board;
