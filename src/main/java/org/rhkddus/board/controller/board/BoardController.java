@@ -38,14 +38,11 @@ public class BoardController {
     @GetMapping("/register")
     public void register(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
 
-
-        log.info("register");
+        log.info("board register");
 
         log.info(authMemberDTO);
 
         model.addAttribute("email", authMemberDTO.getEmail());
-
-
 
     }
 
