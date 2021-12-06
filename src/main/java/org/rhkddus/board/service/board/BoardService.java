@@ -31,9 +31,6 @@ public interface BoardService {
                 .content(dto.getContent())
                 .writer(member)
                 .build();
-
-
-
         return board;
 
     }
