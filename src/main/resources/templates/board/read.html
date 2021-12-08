@@ -140,7 +140,7 @@
                 date.getMinutes();
         }
 
-        //특정 게시글의 댓글 처리 함수
+        //게시글의 댓글 처리 함수
         function loadJSONData() {
 
             $.getJSON("/replies/board/"+bno, function(arr){
@@ -186,15 +186,11 @@
         //Save버튼 클릭시
         $(".replySave").click(function() {
 
-
-
             var reply = {
                 bno : bno,
                 text : $('input[name="replyText"]').val(),
                 replyer : $('input[name="replyer"]').val()
             }
-
-            console.log(reply);
 
             $.ajax({
                 url : '/replies/',

@@ -17,6 +17,22 @@ public class ReplyServiceImpl implements ReplyService{
     private final ReplyRepository replyRepository;
 
     @Override
+    public void modify(ReplyDTO replyDTO) {
+
+        Reply reply = dtoToEntity(replyDTO);
+
+        replyRepository.save(reply);
+
+    }
+
+    @Override
+    public void remove(Long rno) {
+
+        replyRepository.deleteById(rno);
+
+    }
+
+    @Override
     public Long register(ReplyDTO replyDTO) {
 
         Reply reply = dtoToEntity(replyDTO);
@@ -35,19 +51,10 @@ public class ReplyServiceImpl implements ReplyService{
         return result.stream().map(reply -> entityToDTO(reply)).collect(Collectors.toList());
     }
 
-    @Override
-    public void modify(ReplyDTO replyDTO) {
 
-        Reply reply = dtoToEntity(replyDTO);
 
-        replyRepository.save(reply);
 
-    }
 
-    @Override
-    public void remove(Long rno) {
 
-        replyRepository.deleteById(rno);
 
-    }
 }
