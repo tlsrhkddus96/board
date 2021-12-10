@@ -30,6 +30,7 @@ public class ReplyServiceImpl implements ReplyService{
 
         replyRepository.deleteById(rno);
 
+
     }
 
     @Override
@@ -40,6 +41,7 @@ public class ReplyServiceImpl implements ReplyService{
         replyRepository.save(reply);
 
         return reply.getRno();
+
     }
 
     @Override
