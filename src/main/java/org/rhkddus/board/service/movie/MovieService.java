@@ -61,6 +61,7 @@ public interface MovieService {
 
         entityMap.put("movie",movie);
 
+
         List<MovieImageDTO> imageDTOList = movieDTO.getImageDTOList();
 
         //MovieImageDTO 처리
