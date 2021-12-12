@@ -332,7 +332,8 @@
 
           console.log(file);
 
-          $('.imageModal .modal-body').html("<img style='width:100%' src='/display?fileName="+file+"&size=1' >")
+          $('.imageModal .modal-body').html
+            ("<img style='width:100%' src='/display?fileName="+file+"&size=1' >");
 
           $(".imageModal").modal("show");
 

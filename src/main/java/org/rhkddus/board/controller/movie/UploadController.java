@@ -52,21 +52,16 @@ public class UploadController {
 
             //날짜폴더 생성
             String folderPath = makeFolder();
-
             //UUID
             String uuid = UUID.randomUUID().toString();
-
             //저장할 파일 이름 중간에 _ 넣기
             String saveName = uploadPath + File.separator + folderPath + File.separator + uuid + "_" + fileName;
-
+            //세이브 경로
             Path savePath = Paths.get(saveName);
-
 
             try{
                 //원본 파일 저장
                 uploadFile.transferTo(savePath);
-
-
                 //섬네일 생성 ( 이름 중간에 s_ 들어가도록 )
                 String thumbnailSaveName = uploadPath + File.separator + folderPath + File.separator
                         + "s_" + uuid + "_" + fileName;

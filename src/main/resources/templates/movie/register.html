@@ -66,21 +66,15 @@
                     $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
 
                     var formData = new FormData();
-
                     var inputFile = $(this);
-
                     var files = inputFile[0].files;
-
                     var appended = false;
 
                     for(var i = 0; i < files.length; i++) {
-
                         if(!checkExtension(files[i].name, files[i].size) ){
                             return false;
                         }
-
                         console.log(files[i]);
-
                         formData.append("uploadFiles", files[i]);
                         appended = true;
 
