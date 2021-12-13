@@ -25,13 +25,10 @@ public class UserDetailService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         log.info("UserDetailService loadUserByUsername : " + username);
-
         Optional<Member> result = memberRepository.findByEmail(username);
 
         if(!result.isPresent()) {
-
             throw new UsernameNotFoundException("Please Check Email");
-
         }
 
         Member member = result.get();

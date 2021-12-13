@@ -24,15 +24,13 @@ public class MemberServiceImpl implements MemberService{
     @Override
     public String register(MemberDTO dto) {
 
-
         log.info(dto);
-
         Member member = dtoToEntity(dto);
 
         String password = member.getPassword();
 
+        //BCrypt 패스워드 적용, 권한위임
         member.setPassword(passwordEncoder.encode(password));
-
         member.addMemberRole(MemberRole.USER);
 
         memberRepository.save(member);

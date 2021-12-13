@@ -28,7 +28,7 @@ public class SearchBoardRepositoryImpl extends QuerydslRepositorySupport impleme
         super(Board.class);
     }
 
-    @Override
+/*    @Override
     public Board search1() {
 
         log.info("search1.../..");
@@ -46,7 +46,7 @@ public class SearchBoardRepositoryImpl extends QuerydslRepositorySupport impleme
         List<Board> result = jpqlQuery.fetch();
 
         return null;
-    }
+    }*/
 
     @Override
     public Page<Object[]> searchPage(String type, String keyword, Pageable pageable) {
@@ -99,8 +99,6 @@ public class SearchBoardRepositoryImpl extends QuerydslRepositorySupport impleme
 
         //order by
         Sort sort = pageable.getSort();
-
-        //tuple.orderBy(board.bno.desc());
 
         sort.stream().forEach(order -> {
             Order direction = order.isAscending() ? Order.ASC : Order.DESC ;

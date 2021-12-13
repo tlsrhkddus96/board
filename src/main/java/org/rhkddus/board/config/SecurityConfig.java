@@ -20,9 +20,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-
-
-
     @Override
     protected void configure(HttpSecurity http) throws Exception{
 
@@ -30,8 +27,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http.logout();
 
-
-        
     }
 
 
