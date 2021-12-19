@@ -19,9 +19,7 @@ public class PageResultDTO<DTO,EN> {
     private int size;      //목록 사이즈
 
     private int start,end; //시작페이지, 끝페이지 번호
-
     private boolean prev,next; //이전,다음 활성화 여부
-
     private List<Integer> pageList;  //페이지 번호 목록
 
     public PageResultDTO(Page<EN> result, Function<EN,DTO> fn){
@@ -30,8 +28,6 @@ public class PageResultDTO<DTO,EN> {
 
         totalPage = result.getTotalPages();
         makePageList(result.getPageable());
-
-
     }
 
     private void makePageList(Pageable pageable){
