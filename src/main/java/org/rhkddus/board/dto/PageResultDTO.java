@@ -14,6 +14,7 @@ public class PageResultDTO<DTO,EN> {
 
     private List<DTO> dtoList; //DTO리스트
 
+
     private int totalPage; //총 페이지
     private int page;      //현재 페이지
     private int size;      //목록 사이즈

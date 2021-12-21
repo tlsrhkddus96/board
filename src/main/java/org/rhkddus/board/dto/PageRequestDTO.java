@@ -18,6 +18,7 @@ public class PageRequestDTO {
     private String type;
     private String keyword;
 
+
     public PageRequestDTO(){
         this.page = 1;
         this.size = 10;
