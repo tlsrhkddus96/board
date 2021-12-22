@@ -11,4 +11,5 @@ public interface SearchBoardRepository {
     Page<Object[]> searchPage(String type, String keyword, Pageable pageable);
 
 
+
 }

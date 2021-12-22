@@ -75,6 +75,7 @@ public class SearchBoardRepositoryImpl extends QuerydslRepositorySupport impleme
 
         }
 
+
         tuple.where(booleanBuilder);
 
         //order by
